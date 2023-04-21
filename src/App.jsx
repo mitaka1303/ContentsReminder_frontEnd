@@ -7,11 +7,18 @@ import ButtonAppBar from './components/ButtonAppBar'
 import BasicTable from './components/BasicTable'
 import BasicCard from './components/BasicCard'
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [ userData, setUserData ] = useState(["user", "password"]);
+  function changeUserData(i, text){
+    if(i==1){
+      console.log("change"+userData)
+      setUserData([text, userData[1]])
+    }else if(i==2){
+      setUserData([userData[0], text])
+    }
+  }
   return (
     <div>
-      <ButtonAppBar/>
+      <ButtonAppBar changeUserData={changeUserData}/>
       <BasicCard/>
       <BasicTable/>
     </div>
