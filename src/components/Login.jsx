@@ -8,7 +8,7 @@ import FormLabel from '@mui/joy/FormLabel';
 import Input from '@mui/joy/Input';
 import Button from '@mui/joy/Button';
 import Link from '@mui/joy/Link';
-
+import getList from '../Api';
 
 
 export default function Login(props) {
@@ -59,7 +59,7 @@ export default function Login(props) {
             />
           </FormControl>
 
-          <Button sx={{ mt: 1 /* margin top */ }}>Log in</Button>
+          <Button sx={{ mt: 1 /* margin top */ }} onClick={()=>{getList()}}>Log in</Button>
           <Typography
             endDecorator={<Link href="/sign-up">Sign up</Link>}
             fontSize="sm"
