@@ -18,7 +18,7 @@ function App() {
   }
   return (
     <div>
-      <ButtonAppBar changeUserData={changeUserData}/>
+      <ButtonAppBar changeUserData={changeUserData} userData={userData}/>
       <BasicCard/>
       <BasicTable/>
     </div>
