@@ -59,7 +59,7 @@ export default function Login(props) {
             />
           </FormControl>
 
-          <Button sx={{ mt: 1 /* margin top */ }} onClick={()=>{getList(props.userData[0], props.userData[1])}}>Log in</Button>
+          <Button sx={{ mt: 1 /* margin top */ }} onClick={()=>{props.reloadList()}}>Log in</Button>
           <Typography
             endDecorator={<Link href="/sign-up">Sign up</Link>}
             fontSize="sm"

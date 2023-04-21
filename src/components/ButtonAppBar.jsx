@@ -30,7 +30,7 @@ export default function ButtonAppBar(props) {
           <Button color="inherit" onClick={()=>setVisibleLogin(!visibleLogin)}>Login</Button>
         </Toolbar>
       </AppBar>
-      <Login visibleLogin={visibleLogin} changeUserData={props.changeUserData} userData={props.userData}/>
+      <Login visibleLogin={visibleLogin} changeUserData={props.changeUserData} userData={props.userData} reloadList={props.reloadList}/>
     </Box>
   );
 }
