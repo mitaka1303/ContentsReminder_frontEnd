@@ -50,7 +50,7 @@ export default function BasicTable(props) {
           ))}
         </TableBody>
       </Table>
-      <AddCard displayAddCard={displayAddCard} setDisplayAddCard={setDisplayAddCard}/>
+      <AddCard displayAddCard={displayAddCard} setDisplayAddCard={setDisplayAddCard} userData={props.userData}/>
     </TableContainer>
   );
 }

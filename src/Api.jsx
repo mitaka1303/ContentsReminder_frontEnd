@@ -23,3 +23,15 @@ export async function deleteRow(username, password, id){
     console.log(data)
     //return data.data.allItems.rows
 }
+
+export async function addRow(username, password, title){
+    console.log("add row")
+    console.log(title)
+    const data = await axios.post("http://localhost:4000/addRow",{
+        username: username,
+        password: password,
+        title: title
+    })
+    console.log(data)
+    //return data.data.allItems.rows
+}

@@ -6,6 +6,9 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import TextField from '@mui/material/TextField';
+import { useState } from 'react';
+import { addRow } from '../Api';
 
 const style = {
     position: 'absolute',
@@ -29,6 +32,7 @@ const bull = (
 );
 
 export default function AddCard(props) {
+    const [title, setTitle] = useState(null);
   return (
     <Modal
         open={props.displayAddCard}
@@ -41,13 +45,14 @@ export default function AddCard(props) {
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
             new
         </Typography>
-        <Typography variant="h5" component="div">
-          be{bull}nev{bull}o{bull}lent
-        </Typography>
-        <Typography sx={{ mb: 1.5 }} color="text.secondary">
-          adjective
-        </Typography>
-        
+        <TextField
+          id="outlined-password-input"
+          label="タイトル"
+          type="password"
+          autoComplete="current-password"
+          onChange={(e)=>{setTitle(e.target.value)}}
+        /> 
+        <Button id="send" variant="contained" onClick={()=>{addRow(props.userData[0], props.userData[1], title)}} sx={{margin:2}}>登録</Button>
       </CardContent>
       <CardActions>
         <Button size="small">Learn More</Button>
