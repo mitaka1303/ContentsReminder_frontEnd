@@ -8,12 +8,17 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import { deleteRow } from '../Api';
+import IconButton from '@mui/material/IconButton';
+import AddIcon from '@mui/icons-material/Add';
+import AddCard from './AddCard';
+import { useState } from 'react';
 
 function createNewData(id, title, checked) {
   return { id, title, checked };
 }
 
 export default function BasicTable(props) {
+  const [displayAddCard, setDisplayAddCard] = useState(false);
   let rows = [
     createNewData(100,'title', true)
   ];
@@ -26,7 +31,9 @@ export default function BasicTable(props) {
         <TableHead>
           <TableRow>
             <TableCell>タイトル</TableCell>
-            <TableCell align="right"></TableCell>
+            <TableCell align="right"><IconButton color="primary" aria-label="upload picture" component="label" onClick={()=>{setDisplayAddCard(!displayAddCard)}}>
+        < AddIcon/>
+      </IconButton></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -43,6 +50,7 @@ export default function BasicTable(props) {
           ))}
         </TableBody>
       </Table>
+      <AddCard displayAddCard={displayAddCard} setDisplayAddCard={setDisplayAddCard}/>
     </TableContainer>
   );
 }

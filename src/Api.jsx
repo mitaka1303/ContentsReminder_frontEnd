@@ -15,7 +15,7 @@ export async function getList(username, password){
 export async function deleteRow(username, password, id){
     console.log("delete row")
     console.log(username)
-    const data = await axios.post("http://localhost:4000/delete",{
+    const data = await axios.post("http://localhost:4000/deleteRow",{
         username: username,
         password: password,
         id: id
