@@ -46,9 +46,8 @@ export default function AddCard(props) {
             new
         </Typography>
         <TextField
-          id="outlined-password-input"
+          id="outlined-basic"
           label="タイトル"
-          type="password"
           autoComplete="current-password"
           onChange={(e)=>{setTitle(e.target.value)}}
         /> 
