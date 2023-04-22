@@ -6,7 +6,7 @@ import './components/ButtonAppBar'
 import ButtonAppBar from './components/ButtonAppBar'
 import BasicTable from './components/BasicTable'
 import BasicCard from './components/BasicCard'
-import getList from './Api'
+import {getList} from './Api'
 function App() {
   const [ userData, setUserData ] = useState(["user", "password"]);
   const [ list, setList ] = useState(null);
@@ -28,7 +28,7 @@ async function reloadList(){
     <div>
       <ButtonAppBar changeUserData={changeUserData} userData={userData} reloadList={reloadList}/>
       <BasicCard/>
-      <BasicTable list={list}/>
+      <BasicTable list={list} userData={userData}/>
     </div>
   )
 }

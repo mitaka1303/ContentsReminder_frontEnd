@@ -7,17 +7,18 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
+import { deleteRow } from '../Api';
 
-function createNewData(title, checked) {
-  return { title, checked };
+function createNewData(id, title, checked) {
+  return { id, title, checked };
 }
 
 export default function BasicTable(props) {
   let rows = [
-    createNewData('title', true)
+    createNewData(100,'title', true)
   ];
   if(props.list){
-    rows = props.list.map((obj)=>{return createNewData(obj.title, obj.checked)})
+    rows = props.list.map((obj)=>{return createNewData(obj.id, obj.title, obj.checked)})
   }
   return (
     <TableContainer component={Paper}>
@@ -37,7 +38,7 @@ export default function BasicTable(props) {
               <TableCell component="th" scope="row">
                 {row.title}
               </TableCell>
-              <TableCell align="right"><Button variant="contained">Delete</Button></TableCell>
+              <TableCell align="right"><Button id={row.id} variant="contained" onClick={()=>{deleteRow( props.userData[0],props.userData[1], row.id)}}>Delete</Button></TableCell>
             </TableRow>
           ))}
         </TableBody>
