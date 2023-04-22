@@ -13,17 +13,17 @@ import AddIcon from '@mui/icons-material/Add';
 import AddCard from './AddCard';
 import { useState } from 'react';
 
-function createNewData(id, title, checked) {
-  return { id, title, checked };
+function createNewData(id, title, checked, site) {
+  return { id, title, checked, site };
 }
 
 export default function BasicTable(props) {
   const [displayAddCard, setDisplayAddCard] = useState(false);
   let rows = [
-    createNewData(100,'title', true)
+    createNewData(100,'title', true, 'tbd')
   ];
   if(props.list){
-    rows = props.list.map((obj)=>{return createNewData(obj.id, obj.title, obj.checked)})
+    rows = props.list.map((obj)=>{return createNewData(obj.id, obj.title, obj.checked, obj.site)})
   }
   return (
     <TableContainer component={Paper}>
@@ -31,6 +31,7 @@ export default function BasicTable(props) {
         <TableHead>
           <TableRow>
             <TableCell>タイトル</TableCell>
+            <TableCell>配信</TableCell>
             <TableCell align="right"><IconButton color="primary" aria-label="upload picture" component="label" onClick={()=>{setDisplayAddCard(!displayAddCard)}}>
         < AddIcon/>
       </IconButton></TableCell>
@@ -44,6 +45,9 @@ export default function BasicTable(props) {
             >
               <TableCell component="th" scope="row">
                 {row.title}
+              </TableCell>
+              <TableCell component="th" scope="row">
+                {row.site}
               </TableCell>
               <TableCell align="right"><Button id={row.id} variant="contained" onClick={()=>{deleteRow( props.userData[0],props.userData[1], row.id)}}>Delete</Button></TableCell>
             </TableRow>

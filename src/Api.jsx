@@ -9,7 +9,7 @@ export async function getList(username, password){
         password: password
     })
     console.log(data)
-    return data.data.allItems.rows
+    return data.data.updateData
 }
 
 export async function deleteRow(username, password, id){
