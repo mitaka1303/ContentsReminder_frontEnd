@@ -4,7 +4,8 @@ import React from "react"
 export async function getList(username, password){
     console.log("getList")
     console.log(username)
-    const data = await axios.post("http://localhost:4000/getList",{
+    console.log(import.meta.VITE_SERVER_URL)
+    const data = await axios.post(`${import.meta.env.VITE_SERVER_URL}/getList`,{
         username: username,
         password: password
     })
@@ -15,7 +16,7 @@ export async function getList(username, password){
 export async function deleteRow(username, password, id){
     console.log("delete row")
     console.log(username)
-    const data = await axios.post("http://localhost:4000/deleteRow",{
+    const data = await axios.post(`${import.meta.env.VITE_SERVER_URL}/deleteRow`,{
         username: username,
         password: password,
         id: id
@@ -27,7 +28,7 @@ export async function deleteRow(username, password, id){
 export async function addRow(username, password, title){
     console.log("add row")
     console.log(title)
-    const data = await axios.post("http://localhost:4000/addRow",{
+    const data = await axios.post(`${import.meta.env.VITE_SERVER_URL}/addRow`,{
         username: username,
         password: password,
         title: title
