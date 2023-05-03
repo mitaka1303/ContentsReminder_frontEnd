@@ -4,7 +4,7 @@ import React from "react"
 export async function getList(username, password){
     console.log("getList")
     console.log(username)
-    console.log("URL"+import.meta.VITE_SERVER_URL)
+    console.log("URL"+`${import.meta.VITE_SERVER_URL}`)
     const data = await axios.post(`${import.meta.env.VITE_SERVER_URL}/getList`,{
         username: username,
         password: password
