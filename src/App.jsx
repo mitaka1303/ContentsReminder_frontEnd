@@ -7,10 +7,13 @@ import './components/ButtonAppBar'
 import ButtonAppBar from './components/ButtonAppBar'
 import BasicTable from './components/BasicTable'
 import BasicCard from './components/BasicCard'
+import Login from './components/Login'
+import UserPage from './components/UserPage'
 import {getList} from './Api'
 function App() {
   const [ userData, setUserData ] = useState(["user", "password"]);
   const [ list, setList ] = useState(null);
+  const [ contentsList, setContentsList ] = useState(null);
   function changeUserData(i, text){
     if(i==1){
       console.log("change"+userData)
@@ -28,10 +31,10 @@ async function reloadList(){
   return (
     <div>
       <ButtonAppBar changeUserData={changeUserData} userData={userData} reloadList={reloadList}/>
-      <BasicCard/>
-      <BasicTable list={list} userData={userData}/>
       <Routes>
         <Route path={`/`} element={<p>test</p>} />
+        <Route path={`/login`} element={<Login/>}/>
+        <Route path={`/userPage`} element={<UserPage changeUserData={changeUserData} userData={userData} reloadList={reloadList} list={list}/>}/>
         {/* <Route path={`/*`} element={<NotFound />} /> */}
       </Routes>
     </div>

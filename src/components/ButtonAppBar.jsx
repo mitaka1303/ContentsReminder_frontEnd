@@ -8,6 +8,7 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Login from './Login';
 import { useState } from 'react';
+import { Link } from "react-router-dom";
 
 export default function ButtonAppBar(props) {
   const [visibleLogin, setVisibleLogin] = useState(false);
@@ -27,10 +28,9 @@ export default function ButtonAppBar(props) {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             ContentsReminder
           </Typography>
-          <Button color="inherit" onClick={()=>setVisibleLogin(!visibleLogin)}>Login</Button>
+          <Button color="inherit" component={Link} to="/login" onClick={()=>setVisibleLogin(!visibleLogin)}>Login</Button>
         </Toolbar>
       </AppBar>
-      <Login visibleLogin={visibleLogin} changeUserData={props.changeUserData} userData={props.userData} reloadList={props.reloadList}/>
     </Box>
   );
 }

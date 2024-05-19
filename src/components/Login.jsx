@@ -15,7 +15,6 @@ export default function Login(props) {
   function changeFormData(e, i){
     props.changeUserData(i, e)
   }
-  if(props.visibleLogin&&props.visibleLogin!=null){
   return (
     <CssVarsProvider>
         <Sheet
@@ -69,7 +68,4 @@ export default function Login(props) {
         </Sheet>
     </CssVarsProvider>
   );
-        }else{
-          return <div></div>
-        }
 }
