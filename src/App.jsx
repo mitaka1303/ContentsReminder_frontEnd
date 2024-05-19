@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -29,6 +30,10 @@ async function reloadList(){
       <ButtonAppBar changeUserData={changeUserData} userData={userData} reloadList={reloadList}/>
       <BasicCard/>
       <BasicTable list={list} userData={userData}/>
+      <Routes>
+        <Route path={`/`} element={<p>test</p>} />
+        {/* <Route path={`/*`} element={<NotFound />} /> */}
+      </Routes>
     </div>
   )
 }
